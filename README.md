@@ -1,8 +1,11 @@
-# Python Code Snippets
+# CODESOFT
 
-| Code Name | Description |
-|---|:---|
-| `calc.py` | This code demonstrates basic Python syntax and data types. |
-| `code_2.py` | This code explores conditional statements and loops in Python. |
-| `code_3.py` | This code showcases working with functions and modules in Python. |
-| `code_4.py` | This code delves into object-oriented programming concepts in Python. |
+This repository contains a collection of Python projects I've created.
+
+## Available Projects
+
+| File Name | Description |
+|---|---|
+| [calc.py](calc.py) | A simple calculator with basic arithmetic operations. |
+| [pswd_gnrtr.py](pswd_gnrtr.py) | A password generator to create secure passwords. |
+| [todolist.py](todolist.py) | A handy to-do list application to manage tasks. |
