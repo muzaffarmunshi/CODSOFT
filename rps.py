@@ -1,46 +1,39 @@
 import random
-def get_user_choice():
-    print("Choose rock, paper, or scissors:")
-    print("1. Rock")
-    print("2. Paper")
-    print("3. Scissors")
-    user_choice = input("Enter your choice (1/2/3): ")
-    if user_choice == "1":
-        return "rock"
-    elif user_choice == "2":
-        return "paper"
-    elif user_choice == "3":
-        return "scissors"
-    else:
-        print("Invalid choice. Please try again.")
-        return get_user_choice()
+def play_rock_paper_scissors():
+    user_score = 0
+    computer_score = 0
+    while True:
+        print("\nChoose one: (r)ock, (p)aper, (s)cissors, or (q)uit: ")
+        user_choice = input().lower()
 
-def get_computer_choice():
-    choices = ["rock", "paper", "scissors"]
-    return random.choice(choices)
+        if user_choice == 'q':
+            break  
 
-def determine_winner(user_choice, computer_choice):
-    if user_choice == computer_choice:
-        return "It's a tie!"
-    elif (user_choice == "rock" and computer_choice == "scissors") or \
-         (user_choice == "paper" and computer_choice == "rock") or \
-         (user_choice == "scissors" and computer_choice == "paper"):
-        return "You win!"
-    else:
-        return "You lose!"
+        if user_choice not in ['r', 'p', 's']:
+            print("Invalid choice. Please choose r, p, s, or q.")
+            continue  
 
-def play_game():
-    user_choice = get_user_choice()
-    computer_choice = get_computer_choice()
+        computer_choice = random.choice(['r', 'p', 's'])
 
-    print(f"You chose {user_choice}.")
-    print(f"The computer chose {computer_choice}.")
+        print(f"\nYou chose {user_choice}. Computer chose {computer_choice}.")
 
-    result = determine_winner(user_choice, computer_choice)
-    print(result)
+        if user_choice == computer_choice:
+            print("It's a tie!")
+        elif (user_choice == 'r' and computer_choice == 's') or \
+             (user_choice == 'p' and computer_choice == 'r') or \
+             (user_choice == 's' and computer_choice == 'p'):
+            print("You win!")
+            user_score += 1
+        else:
+            print("Computer wins!")
+            computer_score += 1
 
-    play_again = input("Do you want to play again? \n enter y for yes \n enter any key to exit :")
+        print(f"Current scores: You {user_score}, Computer {computer_score}\n")
 
-    if play_again.lower() == "y":
-        play_game()
-play_game()
+        play_again = input("Play again? (y/n): ").lower()
+        if play_again != 'y':
+            break
+
+    print("\nThanks for playing!")
+
+play_rock_paper_scissors()
